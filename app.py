@@ -22,7 +22,8 @@ def login():
     username = request.get_json(force=True).get('username')
     if not username:
         abort(401)
-
+    print('the secrets i have are:',twilio_account_sid, twilio_api_key_sid,
+                        twilio_api_key_secret)
     token = AccessToken(twilio_account_sid, twilio_api_key_sid,
                         twilio_api_key_secret, identity=username)
     token.add_grant(VideoGrant(room='My Room'))
