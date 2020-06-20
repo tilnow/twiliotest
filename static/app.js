@@ -49,6 +49,7 @@ function connect(username) {
             return Twilio.Video.connect(data.token);
         }).then(_room => {
             room = _room;
+            console.log(room);
             room.participants.forEach(participantConnected);
             room.on('participantConnected', participantConnected);
             room.on('participantDisconnected', participantDisconnected);
